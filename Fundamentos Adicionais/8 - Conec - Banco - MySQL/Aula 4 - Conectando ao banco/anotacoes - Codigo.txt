@@ -1,0 +1,5 @@
+É possivel realizar imports implicitos:
+
+_ "github.com/go-sql-driver/mysql"
+
+Não vamos referenciar o mysql no código, mas de forma implicita a lib sql vai procurar pelo provider mysql.

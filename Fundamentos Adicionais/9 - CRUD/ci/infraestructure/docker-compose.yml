@@ -1,0 +1,23 @@
+services:
+    mysql-crud-go: 
+      image: mysql:latest
+      environment:
+        MYSQL_USER: golang
+        MYSQL_PASSWORD: golang
+        MYSQL_DATABASE: devbook
+        MYSQL_ROOT_PASSWORD: root123
+      ports:
+        - "3306:3306"
+      networks:
+        - mysql-connect
+      volumes:
+        - my-db-volume:/var/lib/mysql
+        - ./init/sql:/docker-entrypoint-initdb.d
+        
+networks:
+  mysql-connect:
+    driver: bridge
+
+volumes:
+  my-db-volume:
+    driver: local
